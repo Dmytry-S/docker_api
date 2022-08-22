@@ -9,16 +9,17 @@ class ApiTestService(object):
     def __init__(self):
         self.base_url = os.environ['BASE_URL']
         self.end_point = os.environ['END_POINT']
+        self.url = self.base_url + self.end_point
 
     def post(self, body):
-        return requests.post(self.base_url + self.end_point, data=json.dumps(body),
+        return requests.post(self.url, data=json.dumps(body),
                              headers={'content-type': 'application/json'})
 
     def get(self, user_id):
-        return requests.get(self.base_url + self.end_point + user_id)
+        return requests.get(self.url + user_id)
 
     def delete(self, user_id):
-        return requests.delete(self.base_url + self.end_point + user_id)
+        return requests.delete(self.url + user_id)
 
 
 class UserService(ApiTestService):

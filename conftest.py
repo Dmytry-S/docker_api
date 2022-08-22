@@ -11,5 +11,5 @@ def user_id():
     response = UserService().create_user(user)
     assert response.status_code(201)
     json_data = response.parse_response()
-    user_id = json_data['id']
-    return user_id
+    users_id = json_data['id']
+    return users_id
